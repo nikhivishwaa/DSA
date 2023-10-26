@@ -88,8 +88,8 @@ void enqueue(){
 int main(){
     int c;
     do{
-        printf("\n\t****** Perform Operations on Queue ******\n");
-        printf("\t\t1. Traverse Queue\n");
+        printf("\n\t****** Perform Operations on Circular Queue ******\n");
+        printf("\t\t1. Traverse Circular Queue\n");
         printf("\t\t2. Enqueue the Element\n");
         printf("\t\t3. Dequeue the Element\n");
         printf("\t\t0. Exit\n");
