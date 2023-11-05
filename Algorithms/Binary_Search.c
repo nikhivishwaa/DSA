@@ -4,32 +4,29 @@
 
 int arr[size], key = 0, item = 0;
 
-int sort(){
+void ascending(){
     int hold = 0;
-    for(int i = 0; i<item-1; i++){
-        if(arr[i]<=arr[i+1])continue;
+    for(int i = item - 1; i>0; i--){
+        if(arr[i]>=arr[i-1])break;
         else{
             hold = arr[i];
-            arr[i] = arr[i+1];
-            arr[i+1] = hold;
+            arr[i] = arr[i-1];
+            arr[i-1] = hold;
         }
-        // printf("%d\t",arr[i]);
     }
-    return 0;
 }
-int binarySearch(){
+void binarySearch(){
     int lb = 0, ub = size -1, mid = 0;
     do{
         mid = (lb + ub)/2;
-        // printf("%d\t",mid);
         if(arr[mid]==key){
-            printf("Search Successful\t Pos: %d",mid+1);
+            printf("\n\tSearch Successful\t Pos: %d",mid+1);
             break;
         }
         else if(arr[mid]<key)lb = mid + 1;
         else if(arr[mid]>key)ub = mid - 1;
     } while(!(lb>ub));
-    return 0;
+    if(lb>ub)printf("\n\tSearch Unsuccessful");
 }
 
 int main() {
@@ -39,20 +36,22 @@ int main() {
         printf("[%d] : ",i+1);
         scanf("%d",&arr[i]);
         item++;
-        sort();
+        ascending();
     }
-    sort();
+    printf("\n");
+    for(i=0; i<item;i++)printf("\t%d",arr[i]);
     do{
-        printf("\n\t1 to search\n\t0 to exit\n\t\t>> ");
+        printf("\n\t***** Welcome to Binary Search Program *****");
+        printf("\n\t\t1 to search\n\t\t0 to exit\n\t\t\t>> ");
         scanf("%d",&j);
         switch(j){
             case 1:
-                printf("\n\nEnter Key to Search: ");
+                printf("\n\tEnter Key to Search: ");
                 scanf("%d",&key);
                 binarySearch(); 
                 break;
             default:
-                printf("Invalid Input");
+                printf("\n\tInvalid Input");
                 break;
         }
     }while(j);
