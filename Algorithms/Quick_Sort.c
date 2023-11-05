@@ -41,7 +41,7 @@ int main()
     int arr[n];
     for (i = 0; i < n; i++)
     {
-        printf("\t[%d] : ", i);
+        printf("\t[%d] : ", i+1);
         scanf("%d", &arr[i]);
     }
     quicksort(arr, 0, n - 1);
